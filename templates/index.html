@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('         {{ url_for('static', filename='img/home-bg.jpg') }}       ')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>{{parameters['blog_name']}}</h1>
+              <span class="subheading">{{parameters['tag_line']}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+<!-- Message flashing starts here ... -->
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+<div class="container alert alert-{{category}} alert-dismissible fade show" role="alert">
+{{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <!--To fetch using for loop from the database-->
+
+          {% for post in posts %}
+
+
+          <div class="post-preview">
+            <a href="/post/{{post.Slug}}">
+              <h2 class="post-title">
+                {{ post.Title }}
+              </h2>
+              <h3 class="post-subtitle">
+               {{post.tag_line}}
+              </h3>
+            </a>
+            <p class="post-meta">Posted
+              on {{post.Date}}</p>
+          </div>
+          {{post.Content[0:25]}}....
+          <hr>
+
+          {% endfor %}
+          
+          <!-- Pager -->
+          <div class="clearfix">
+            <a class="btn btn-primary float-right" href="{{next}}"> &rarr; Newer Posts </a>
+            <a class="btn btn-primary float-left" href="{{old}}"> &larr; Older Posts </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endblock %}

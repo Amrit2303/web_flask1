@@ -1,0 +1,28 @@
+{
+
+    "parameters":
+    {
+        "local_server":"True",
+        "local_uri":"mysql://root:@localhost/codeDeltas",
+        "production_uri":"mysql://root:@localhost/codeDeltas",
+        "fb_url":"https://www.facebook.com/codeDeltas",
+        "tw_url":"https://twitter.com/codeDeltas",
+        "gb_url":"https://github.com/codeDeltas",
+        "site_name": "codeDeltas",
+        "blog_name":"A initiative by codeDeltas",
+        "tag_line":"The best time to act on this was decades ago. The second best time is now.",
+        "gmail_user":" amritparijat03@gmail.com",
+        "gmail_password": "taspvpaaxgtfilkl",
+        "about_text": "My name is Amrit.",
+        "No_of_posts":2,
+        "admin_user": "amritparijat03@gmail.com",
+        "admin_password": "0306",
+        "file_uploader_location": "C:\\Users\\91798\\PycharmProjects\\flask_pro"
+
+
+
+
+
+
+    }
+}
